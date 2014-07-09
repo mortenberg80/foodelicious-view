@@ -1,0 +1,88 @@
+<div ng-controller="RecipeCtrl">
+    <div class="container">
+        <h1>Opprett ny oppskrift</h1>
+
+        <form class="form" ng-submit="saveRecipe(recipeForm.recipe)">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="fileinput fileinput-new" data-provides="fileinput" style="width:100%">
+                        <div class="fileinput-preview thumbnail" data-trigger="fileinput"
+                             style="width: 100%; height: 250px;"></div>
+                        <div>
+						<span class="btn btn-default btn-file">
+                            <span class="fileinput-new"><span class="glyphicon glyphicon-camera"></span></span>
+                            <span class="fileinput-exists"><span class="glyphicon glyphicon-camera"></span></span>
+                            <input type="file" name="..." file-model="image">
+                        </span>
+                            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><span
+                                    class="glyphicon glyphicon-remove"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name" class="control-label">Navn</label>
+                        <input id="name" type="text" class="form-control" placeholder="Name"
+                               ng-model="recipeForm.recipe.name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="control-label">Beskrivelse</label>
+
+                        <div contenteditable
+                             id="description" ng-model="recipeForm.recipe.description"
+                             strip-br="true"
+                             required
+                             class="recipe-description form-control"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="courseType" class="control-label">Type rett</label>
+                                <select id="courseType.code" class="form-control" ng-model="recipeForm.recipe.courseType"
+                                        ng-options="type.name for type in courseTypes">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="servings" class="control-label">Porsjoner</label>
+                                <input id="servings" type="number" class="form-control" min="1" max="9" step="1"
+                                       value="1"
+                                       ng-model="recipeForm.recipe.servings"/>
+                            </div>
+                        </div>
+                    </div>
+                    {{statusText}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="ingredients" class="control-label">Ingredienser</label>
+
+                        <div contenteditable
+                             id="ingredients" ng-model="recipeForm.recipe.ingredients"
+                             strip-br="true"
+                             required
+                             class="recipe-directions form-control"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Lagre</button>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="directions" class="control-label">Fremgangsmåte</label>
+
+                        <div contenteditable
+                             id="directions" ng-model="recipeForm.recipe.directions"
+                             strip-br="true"
+                             required
+                             class="recipe-directions form-control"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+body {
+  padding-top: 50px;
+}
+
+.nopadding{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.padded-container {
+	padding: 20px;
+}
+
+.background-image {
+	background-repeat: no-repeat;
+	background-position: center;
+	  -webkit-background-size: cover !important;
+	  -moz-background-size: cover !important;
+	  -o-background-size: cover !important;
+	  background-size: cover !important;
+	  width: 100%;
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) { 
+.background-image {
+	height: 300px;
+ }
+ }
+
+ /* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+.background-image {
+	height: 600px;
+ }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+.background-image {
+	height: 768px;
+ }
+  }
+
+/* Large desktop */
+@media (min-width: 1200px) { 
+.background-image {
+	height: 900px;
+ }
+}
+
+
+
+
+
+
+
+
+
+/******************** NEW RECIPE *******************/
+.form-control.recipe-directions, .form-control.recipe-description{
+	min-height: 10em;
+	height: auto ; 
+}

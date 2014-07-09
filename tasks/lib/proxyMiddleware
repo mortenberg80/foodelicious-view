@@ -1,0 +1,16 @@
+/*jshint node:true*/
+// Connect middleware that proxies requests starting with `prefix`.
+'use strict';
+
+var request = require('request');
+module.exports = function(url, prefix) {
+    prefix = prefix || '/api';
+    return function(req, res, next) {
+        if (req.url.indexOf(prefix) === 0) {
+            console.log('Proxying request to backend: %s', req.url);
+            req.pipe(request(url + req.url)).pipe(res);
+        } else {
+            next();
+        }
+    };
+};
